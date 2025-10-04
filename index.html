@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE & CBSE Virtual Lab - Interactive Experiments</title>
+    <link rel="stylesheet" href="index.css">
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="https://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@11.11.0/lib/browser/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsxgraph@1.4.6/distrib/jsxgraphcore.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.4.6/distrib/jsxgraph.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🔬 JEE & CBSE Virtual Laboratory</h1>
+        <p>Interactive Physics, Chemistry & Mathematics Experiments</p>
+    </header>
+
+    <nav>
+        <button onclick="showSection('physics')" class="nav-btn">⚛️ Physics</button>
+        <button onclick="showSection('chemistry')" class="nav-btn">🧪 Chemistry</button>
+        <button onclick="showSection('mathematics')" class="nav-btn">📐 Mathematics</button>
+    </nav>
+
+    <!-- Physics Section -->
+    <div id="physics" class="section">
+        <h2>Physics Experiments</h2>
+        <div class="experiment-grid">
+            <div class="experiment-card" onclick="loadExperiment('pendulum')">
+                <h3>Simple Pendulum</h3>
+                <p>Study oscillatory motion and time period</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('projectile')">
+                <h3>Projectile Motion</h3>
+                <p>Analyze trajectory and range</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('collision')">
+                <h3>Collision Simulation</h3>
+                <p>Elastic and inelastic collisions</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('waves')">
+                <h3>Wave Interference</h3>
+                <p>3D wave superposition</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('circuits')">
+                <h3>Electric Circuits</h3>
+                <p>Ohm's Law and circuit analysis</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('optics')">
+                <h3>Ray Optics</h3>
+                <p>Reflection and refraction</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chemistry Section -->
+    <div id="chemistry" class="section" style="display:none;">
+        <h2>Chemistry Experiments</h2>
+        <div class="experiment-grid">
+            <div class="experiment-card" onclick="loadExperiment('molecules')">
+                <h3>3D Molecular Structures</h3>
+                <p>Visualize organic compounds</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('titration')">
+                <h3>Acid-Base Titration</h3>
+                <p>pH curve simulation</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('reactions')">
+                <h3>Chemical Reactions</h3>
+                <p>Balance equations interactively</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('periodic')">
+                <h3>Periodic Table Explorer</h3>
+                <p>Interactive element properties</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('electrochemistry')">
+                <h3>Electrochemical Cell</h3>
+                <p>Redox reactions visualization</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mathematics Section -->
+    <div id="mathematics" class="section" style="display:none;">
+        <h2>Mathematics Experiments</h2>
+        <div class="experiment-grid">
+            <div class="experiment-card" onclick="loadExperiment('functions')">
+                <h3>Function Grapher</h3>
+                <p>Plot and analyze functions</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('calculus')">
+                <h3>Derivative Visualizer</h3>
+                <p>Understand differentiation</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('vectors')">
+                <h3>3D Vector Operations</h3>
+                <p>Cross product and dot product</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('trigonometry')">
+                <h3>Trigonometric Functions</h3>
+                <p>Unit circle and waves</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('probability')">
+                <h3>Probability Simulator</h3>
+                <p>Binomial and normal distributions</p>
+            </div>
+            <div class="experiment-card" onclick="loadExperiment('geometry')">
+                <h3>3D Geometry</h3>
+                <p>Solid shapes and transformations</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experiment Canvas -->
+    <div id="experimentCanvas" style="display:none;">
+        <button onclick="closeExperiment()" class="close-btn">← Back</button>
+        <div id="experimentTitle"></div>
+        <div id="controls"></div>
+        <div id="canvas-container"></div>
+        <div id="data-display"></div>
+    </div>
+
+    <script src="physics-experiments.js"></script>
+    <script src="chemistry-experiments.js"></script>
+    <script src="math-experiments.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
